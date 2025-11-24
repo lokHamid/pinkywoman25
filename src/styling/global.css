@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+:root{
+    --main-color: #fdfaf3;
+    --secondary-color: #faafe0;
+    --accent-color: #ffc2ea;
+    --font-family: 'Arial', sans-serif;
+    --font-size: 20px;
+}
+
+
+
+/* nav bar styling:*/
+
+.nav-bar {
+    display: flex;
+    background: var(--main-color);
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    width: 100%;
+    padding: 20px;
+}
+.nav-bar .logo-placeholder img {
+    height: 100px;
+}
+.nav-bar > div {
+    display: flex;
+    gap: 15px;           /* space between links */
+    flex-wrap: wrap;      /* wrap to next line if too long */
+}
+.nav-bar a {
+    text-decoration: none;
+    color: black;
+    border-bottom: 2px solid transparent; /* for hover effect */
+    font-weight: bold;
+    font-size: var(--font-size);
+    padding: 10px 15px;
+    transition: background-color 0.15s, color 0.15s;
+}
+.nav-bar div.dropdown a {
+    cursor: pointer;
+}
+.nav-bar a.active {
+    color: var(--accent-color); /* highlighted color */
+    font-weight: bolder;
+}
+.nav-bar a:hover {
+    color: var(--secondary-color);
+    border-radius: 5px;
+}
+/* Container for icon + input */
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 40px;
+}
+
+/* Input field initially hidden */
+#navSearchInput {
+    background-color: var(--main-color);
+    position: absolute;        /* remove from document flow */
+    right: 100%;                  /* position it to the left of the icon */
+    width: 0;
+    padding: 0;
+    border: none;
+    opacity: 0;
+    border-radius: 4px;
+    transition: width 0.3s ease, opacity 0.3s ease-in, padding 0.3s ease;
+    margin-right: 20px; /* space from icon */
+    font-size: calc(var(--font-size) - 4px);
+    outline: none;
+}
+
+/* Expanded input */
+#navSearchInput.active {
+    background-color: var(--main-color);
+    border-color: var(--secondary-color);       /* new border color */
+    border-bottom: 2px solid var(--secondary-color);
+    border-color: var(--secondary-color);
+    width: 200px;
+    padding: 8px 10px;
+    opacity: 1;
+    font-size: calc(var(--font-size) - 4px);
+    outline: none;
+}
+
+/* Search icon */
+.search-icon-container {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Dropdown menu styling */
+.dropdown{
+    display: flex;
+    position: relative;
+    align-items: center ;
+}
+
+.dropdown-content {
+  display: none; /* Hidden by default */
+  position: absolute; /* Positioned relative to .dropdown */
+  top: 100%;          /* Directly below the button */
+  left: 0;
+  background: white;
+  min-width: 150px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  font-size: calc(var(--font-size) - 4px);
+  color: black;
+  text-decoration: none;
+}
+
+.dropdown-content a:hover {
+  background: #eee;
+}
