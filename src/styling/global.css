@@ -1,6 +1,9 @@
 * {
     box-sizing: border-box;
 }
+html, body {
+    overflow-x: hidden;
+}
 body{
     display: flex;
     flex-direction: column;
@@ -12,23 +15,31 @@ body{
     --main-color: #fdfaf3;
     --secondary-color: #faafe0;
     --accent-color: #ffc2ea;
-    --font-family: 'Arial', sans-serif;
+    --font-family: "Times New Roman", serif;
     --font-size: 20px;
 }
-
-
-
 /* nav bar styling:*/
 
 .nav-bar {
+    position: fixed;
     display: flex;
     background: var(--main-color);
     align-items: center;
     justify-content: space-between;
+    top: 0;
+    left: 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     width: 100%;
     padding: 20px;
+    transition: transform 0.3s ease;  /* animate the hide/show */
+    z-index: 1000;  /* keep it on top */
 }
+
+/* Class to hide navbar by sliding it up */
+.nav-bar.nav-up {
+  transform: translateY(-100%);  /* move it out of view */
+}
+
 .nav-bar .logo-placeholder img {
     height: 100px;
 }
@@ -120,7 +131,7 @@ body{
   background: white;
   min-width: 150px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  z-index: 1;
+  z-index: 5;
 }
 
 .dropdown-content a {
@@ -133,4 +144,25 @@ body{
 
 .dropdown-content a:hover {
   background: #eee;
+}
+/* global button styling */
+
+.pink-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    border: none;
+    border-radius: 1px;
+    font-size: calc(var(--font-size) + 8px);
+    font-family: var(--font-family);
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s;
+    display: inline-block;
+}
+.pink-btn:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+    color: var(--main-color);
 }

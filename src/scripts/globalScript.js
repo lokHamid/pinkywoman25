@@ -82,3 +82,22 @@ document.addEventListener("click", (e) => {
     }
 });
 //----------------------------------------------------
+
+
+//dynamic minmized navbar on scroll -----------------:
+const nav = document.querySelector('.nav-bar');
+let lastScrollY = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > nav.offsetHeight) {
+    // scrolling down — hide navbar
+    nav.classList.add('nav-up');
+  } else {
+    // scrolling up — show navbar
+    nav.classList.remove('nav-up');
+  }
+
+  lastScrollY = currentScrollY;
+});
