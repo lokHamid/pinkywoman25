@@ -41,7 +41,8 @@ body{
 }
 
 .nav-bar .logo-placeholder img {
-    height: 100px;
+    cursor: pointer;
+    height: 70px;
 }
 .nav-bar > div {
     display: flex;
