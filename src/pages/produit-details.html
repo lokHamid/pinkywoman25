@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pinky Woman 25</title>
+    <title>Pinky Woman 25 - Product Details</title>
     <link rel="stylesheet" href="../styling/global.css">
     <link rel="stylesheet" href="../styling/produit-details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -21,16 +21,13 @@
             <a href="produits.html?discount">Promotions</a>
             <div class="dropdown">
                <a id="moreBtn">More ▼</a>
-
                 <div id="dropdownmenu" class="dropdown-content">
                     <a href="produits.html?category=pyjamas_manche_longue">pyjamas manche longue</a>
                     <a href="produits.html?category=pyjamas_ete">pyjamas d'été</a>
                     <a href="produits.html?category=robe_maison">robe maison</a>
-                    <!-- more options … -->
                 </div>
             </div>
         </div>
-
         <div class="search-wrapper">
             <input type="text" id="navSearchInput" placeholder="Search" />
             <div class="search-icon-container" id="searchIcon">
@@ -38,5 +35,82 @@
             </div>
         </div>
     </navbar>
+
+    <div class="main-content">
+        <!-- Image Section -->
+        <div class="image-side">
+            <img src="../../assets/cropped-pw25.jpeg" id="currentImage" alt="Product Image">
+            <div class="btns-holder">
+                <button class="swap-img-btn" id="leftBtn" aria-label="Previous image">
+                    <i class="fa-solid fa-angle-left"></i>
+                </button>
+                <button class="swap-img-btn" id="rightBtn" aria-label="Next image">
+                    <i class="fa-solid fa-angle-right"></i>
+                </button>
+            </div>
+            <div class="thumbnail-container">
+                <img src="../../assets/cropped-pw25.jpeg" class="thumbnail active" data-image="../../assets/cropped-pw25.jpeg" alt="Thumbnail 1">
+                <img src="../../assets/rotating-img2.jpg" class="thumbnail" data-image="../../assets/rotating-img2.jpg" alt="Thumbnail 2">
+                <img src="../../assets/rotating-img3.jpg" class="thumbnail" data-image="../../assets/rotating-img3.jpg" alt="Thumbnail 3">
+            </div>
+        </div>
+        
+        <!-- Information Section -->
+        <div class="info-side">
+            <div class="title-sect">
+                <h1 class="title">Pyjama Élégant - Collection Printemps</h1>
+                <p class="price">4,500 D.A</p>
+                <p class="description">Découvrez notre pyjama premium confectionné avec un tissu 100% coton pour un confort optimal. Parfait pour vos nuits douillettes et vos moments de détente à la maison.</p>
+            </div>
+
+            <hr class="divider-hr">
+
+            <div class="category-sect">
+                <h4>Catégories</h4>
+                <div class="category-cards-container">
+                    <p>Pyjama Spécial</p>
+                    <p>Pyjama Manche Longue</p>
+                    <p>Collection Printemps</p>
+                </div>
+            </div>
+
+            <hr class="divider-hr">
+
+            <div class="size-sect">
+                <h4>Tailles Disponibles</h4>
+                <div class="size-options">
+                    <div class="size-option">XS</div>
+                    <div class="size-option active">S</div>
+                    <div class="size-option">M</div>
+                    <div class="size-option">L</div>
+                    <div class="size-option">XL</div>
+                </div>
+            </div>
+
+            <hr class="divider-hr">
+
+            <div class="color-sect">
+                <h4>Couleurs Disponibles</h4>
+                <div class="color-options">
+                    <div class="color-option active" style="background-color: #ff3b30;" title="Rouge"></div>
+                    <div class="color-option" style="background-color: #007bff;" title="Bleu"></div>
+                    <div class="color-option" style="background-color: #4cd964;" title="Vert"></div>
+                    <div class="color-option" style="background-color: #ffcc00;" title="Jaune"></div>
+                    <div class="color-option" style="background-color: #000000;" title="Noir"></div>
+                    <div class="color-option" style="background-color: #8e8e93;" title="Gris"></div>
+                </div>
+            </div>
+
+            <hr class="divider-hr">
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn-primary">
+                    <i class="fa-solid fa-dollar-sign"></i>
+                    Commander Maintenant
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

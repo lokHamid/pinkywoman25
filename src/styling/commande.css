@@ -1,0 +1,292 @@
+/* Order Page Styling */
+.order-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.order-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.order-header h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.order-header p {
+    color: #718096;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.order-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.order-summary {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.order-summary h3 {
+    color: #2d3748;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.product-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.product-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.product-details {
+    flex: 1;
+}
+
+.product-name {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 5px;
+}
+
+.product-meta {
+    font-size: 0.9rem;
+    color: #718096;
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 2px solid #e2e8f0;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2d3748;
+}
+
+/* Form Styling */
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 1rem;
+}
+
+.form-group label .required {
+    color: #e53e3e;
+}
+
+.form-input,
+.form-select {
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.form-input:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(216, 27, 96, 0.1);
+}
+
+.form-input.error,
+.form-select.error {
+    border-color: #e53e3e;
+    box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.form-hint {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Submit Button */
+.submit-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.submit-btn:hover {
+    background: #d81b60;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(216, 27, 96, 0.3);
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+.submit-btn:disabled {
+    background: #cbd5e0;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Success Message */
+.success-message {
+    background: #f0fff4;
+    border: 1px solid #9ae6b4;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 20px;
+    display: none;
+}
+
+.success-message.show {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-icon {
+    font-size: 3rem;
+    color: #38a169;
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    color: #2d3748;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.success-message p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-container {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .order-card {
+        padding: 25px;
+    }
+    
+    .order-header h1 {
+        font-size: 2rem;
+    }
+    
+    .product-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .product-details {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .order-card {
+        padding: 20px;
+    }
+    
+    .order-header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .form-input,
+    .form-select {
+        padding: 12px 14px;
+    }
+    
+    .submit-btn {
+        padding: 14px 24px;
+    }
+}

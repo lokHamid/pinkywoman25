@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinky Woman 25 - Commande</title>
+    <link rel="stylesheet" href="../styling/global.css">
+    <link rel="stylesheet" href="../styling/commande.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="../scripts/globalScript.js" defer></script>
+    <script src="../scripts/commande.js" defer></script>
+</head>
+<body>
+    <navbar class="nav-bar">
+        <div class="logo-placeholder">
+            <img src="../../assets/cropped-pw25.jpeg" alt="pinkyWoman25" onclick="window.location.href='index.html'"/>
+        </div>  
+        <div>
+            <a href="index.html">Accueil</a>
+            <a href="produits.html">Tous Les Produits</a>
+            <a href="produits.html?discount">Promotions</a>
+            <div class="dropdown">
+               <a id="moreBtn">More ▼</a>
+                <div id="dropdownmenu" class="dropdown-content">
+                    <a href="produits.html?category=pyjamas_manche_longue">pyjamas manche longue</a>
+                    <a href="produits.html?category=pyjamas_ete">pyjamas d'été</a>
+                    <a href="produits.html?category=robe_maison">robe maison</a>
+                </div>
+            </div>
+        </div>
+        <div class="search-wrapper">
+            <input type="text" id="navSearchInput" placeholder="Search" />
+            <div class="search-icon-container" id="searchIcon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+    </navbar>
+
+    <div class="order-container">
+        <div class="order-header">
+            <h1>Finaliser Votre Commande</h1>
+            <p>Remplissez le formulaire ci-dessous pour passer votre commande. Nous vous contacterons dans les plus brefs délais.</p>
+        </div>
+
+        <div class="order-card">
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>Résumé de la Commande</h3>
+                
+                <div class="product-item">
+                    <img src="../../assets/cropped-pw25.jpeg" alt="Pyjama Élégant" class="product-image">
+                    <div class="product-details">
+                        <div class="product-name">Pyjama Élégant - Collection Printemps</div>
+                        <div class="product-meta">Taille: S | Couleur: Rouge</div>
+                    </div>
+                    <div class="product-price">4,500 D.A</div>
+                </div>
+                
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span>4,500 D.A</span>
+                </div>
+            </div>
+
+            <!-- Order Form -->
+            <form id="orderForm" class="order-form">
+                <div class="form-group">
+                    <label for="fullName">Nom Complet <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Votre nom complet" required>
+                    <div class="error-message" id="fullNameError">Veuillez entrer votre nom complet</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wilaya">Wilaya <span class="required">*</span></label>
+                    <select id="wilaya" name="wilaya" class="form-select" required>
+                        <option value="">Sélectionnez votre wilaya</option>
+                        <option value="Alger">Alger</option>
+                        <option value="Oran">Oran</option>
+                        <option value="Constantine">Constantine</option>
+                        <option value="Annaba">Annaba</option>
+                        <option value="Blida">Blida</option>
+                        <option value="Tizi Ouzou">Tizi Ouzou</option>
+                        <option value="Béjaïa">Béjaïa</option>
+                        <option value="Sétif">Sétif</option>
+                        <option value="Batna">Batna</option>
+                        <option value="Djelfa">Djelfa</option>
+                        <option value="Sidi Bel Abbès">Sidi Bel Abbès</option>
+                        <option value="Biskra">Biskra</option>
+                        <option value="Tébessa">Tébessa</option>
+                        <option value="El Oued">El Oued</option>
+                        <option value="Skikda">Skikda</option>
+                        <option value="Tiaret">Tiaret</option>
+                        <option value="Béchar">Béchar</option>
+                        <option value="Mostaganem">Mostaganem</option>
+                        <option value="M'Sila">M'Sila</option>
+                        <option value="Guelma">Guelma</option>
+                        <option value="Laghouat">Laghouat</option>
+                        <option value="Ouargla">Ouargla</option>
+                        <option value="Tlemcen">Tlemcen</option>
+                        <option value="Chlef">Chlef</option>
+                        <option value="Mascara">Mascara</option>
+                        <option value="Jijel">Jijel</option>
+                        <option value="Adrar">Adrar</option>
+                        <option value="Aïn Defla">Aïn Defla</option>
+                        <option value="Aïn Témouchent">Aïn Témouchent</option>
+                        <option value="Tindouf">Tindouf</option>
+                        <option value="Tipaza">Tipaza</option>
+                        <option value="Bouira">Bouira</option>
+                        <option value="Tissemsilt">Tissemsilt</option>
+                        <option value="Khenchela">Khenchela</option>
+                        <option value="Souk Ahras">Souk Ahras</option>
+                        <option value="Mila">Mila</option>
+                        <option value="Aïn Defla">Aïn Defla</option>
+                        <option value="Naâma">Naâma</option>
+                        <option value="Ghardaïa">Ghardaïa</option>
+                        <option value="Relizane">Relizane</option>
+                        <option value="Timimoun">Timimoun</option>
+                        <option value="Bordj Badji Mokhtar">Bordj Badji Mokhtar</option>
+                        <option value="Ouled Djellal">Ouled Djellal</option>
+                        <option value="Béni Abbès">Béni Abbès</option>
+                        <option value="In Salah">In Salah</option>
+                        <option value="In Guezzam">In Guezzam</option>
+                        <option value="Touggourt">Touggourt</option>
+                        <option value="Djanet">Djanet</option>
+                        <option value="El M'Ghair">El M'Ghair</option>
+                        <option value="El Menia">El Menia</option>
+                    </select>
+                    <div class="error-message" id="wilayaError">Veuillez sélectionner votre wilaya</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Numéro de Téléphone <span class="required">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" class="form-input" placeholder="Ex: 0550123456" required>
+                    <div class="error-message" id="phoneError">Veuillez entrer un numéro de téléphone valide (10 chiffres)</div>
+                    <div class="form-hint">Format: 05 XX XX XX XX ou 06 XX XX XX XX ou 07 XX XX XX XX</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Adresse Complète (Optionnel)</label>
+                    <textarea id="address" name="address" class="form-input" placeholder="Votre adresse complète pour la livraison..." rows="3"></textarea>
+                    <div class="form-hint">Pour une livraison plus rapide, veuillez préciser votre adresse complète</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes Spéciales (Optionnel)</label>
+                    <textarea id="notes" name="notes" class="form-input" placeholder="Des instructions spéciales ou commentaires..." rows="3"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    Confirmer la Commande
+                </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="success-message" id="successMessage">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3>Commande Confirmée!</h3>
+                <p>Merci pour votre commande. Nous vous contacterons dans les plus brefs délais au numéro que vous avez fourni pour finaliser les détails de livraison.</p>
+                <p><strong>Pinky Woman 25</strong></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -26,6 +26,12 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
 }
+.divider-hr {
+    border: 1px solid var(--secondary-color);
+    height: 2px;
+    margin: 15px 0;
+    width: 100%;
+}
 /* nav bar styling:*/
 
 .nav-bar {
