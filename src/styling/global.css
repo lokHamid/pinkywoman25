@@ -3,8 +3,10 @@
 }
 html, body {
     overflow-x: hidden;
+    background-color: #f4f4f4;
 }
 body{
+    padding-top: var(--navbar-height);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,10 +15,16 @@ body{
 }
 :root{
     --main-color: #fdfaf3;
+    --navbar-height: 90px;
     --secondary-color: #faafe0;
     --accent-color: #ffc2ea;
     --font-family: "Times New Roman", serif;
     --font-size: 20px;
+    --default-box-shadow:0 4px 20px rgba(0, 0, 0, 0.08);
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
 }
 /* nav bar styling:*/
 
@@ -30,7 +38,7 @@ body{
     left: 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     width: 100%;
-    padding: 20px;
+    padding: 10px; /* this will affect all the layout if changed*/
     transition: transform 0.3s ease;  /* animate the hide/show */
     z-index: 1000;  /* keep it on top */
 }

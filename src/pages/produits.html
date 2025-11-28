@@ -20,7 +20,7 @@
             <a href="produits.html">Tous Les Produits</a>
             <a href="produits.html?discount">Promotions</a>
             <div class="dropdown">
-               <a id="moreBtn" class="dropdown-btn">More ▼</a>
+               <a id="moreBtn">More ▼</a>
 
                 <div id="dropdownmenu" class="dropdown-content">
                     <a href="produits.html?category=pyjamas_manche_longue">pyjamas manche longue</a>
@@ -37,11 +37,134 @@
                 <i class="fas fa-search"></i>
             </div>
         </div>
-
-        
     </navbar>
-    
+    <div class="main-content">
+        <div class="filter-sidebar">
+            <div class="category-section">
+                <h3>Categories</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-1">
+                        <label for="category-1">T-Shirts</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-2">
+                        <label for="category-2">Jeans</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-3">
+                        <label for="category-3">Dresses</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="category-4">
+                        <label for="category-4">Jackets</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="size-section">
+                <h3>Size</h3>
+                <div class="size-options">
+                    <div class="size-option">XS</div>
+                    <div class="size-option">S</div>
+                    <div class="size-option">M</div>
+                    <div class="size-option">L</div>
+                    <div class="size-option">XL</div>
+                </div>
+            </div>
+            
+            <div class="price-section">
+                <h3>Price Range</h3>
+                <div class="price-inputs">
+                    <div class="price-input-group">
+                        <label>Min</label>
+                        <input type="number" placeholder="1000 D.A">
+                    </div>
+                    <div class="price-input-group">
+                        <label>Max</label>
+                        <input type="number" placeholder="20000 D.A">
+                    </div>
+                </div>
+                <div class="price-slider">
+                    <div class="price-slider-track" style="left: 20%; right: 30%;"></div>
+                    <div class="price-slider-thumb" style="left: 20%;"></div>
+                    <div class="price-slider-thumb" style="left: 70%;"></div>
+                </div>
+            </div>
+            
+            <div class="color-section">
+                <h3>Color</h3>
+                <div class="color-options">
+                    <div class="color-option" style="background-color: #ff3b30;"></div>
+                    <div class="color-option" style="background-color: #007bff;"></div>
+                    <div class="color-option" style="background-color: #4cd964;"></div>
+                    <div class="color-option" style="background-color: #ffcc00;"></div>
+                    <div class="color-option" style="background-color: #000000;"></div>
+                    <div class="color-option" style="background-color: #8e8e93;"></div>
+                </div>
+            </div>
 
-    <h1>Tous Les Produits</h1>
+            <button class="apply-filters-btn">Apply Filters</button>
+        </div>
+        <div class="products-container">
+            <div class="grid-title-section">
+                <div class="filtered-text-title">Tous Les Produits</div>
+                <div class="filter-dropdown">
+                    <button class="dropbtn" id="filterBtn">All Items ▼</button>
+                    <div class="filter-drp-content">
+                        <a data-value="all">Tous les articles</a>
+                        <a data-value="featured">En Vedette</a>
+                        <a data-value="popular">populaire</a>
+                        <a data-value="new">Nouveautés</a>
+                    </div>
+                </div>
+            </div>
+            <div class="products-grid">
+
+                <!-- generic layout or desing of card: dynamic later. -->
+                <div class="product-card">
+                    <div class="product-details">
+                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
+                        <div class="product-specs">
+                            <h3>title here</h3>
+                            <h4>price</h4>
+                            <p> small description here</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-details">
+                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
+                        <div class="product-specs">
+                            <h3>title here</h3>
+                            <h4>price</h4>
+                            <p> small description here</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-details">
+                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
+                        <div class="product-specs">
+                            <h3>title here</h3>
+                            <h4>price</h4>
+                            <p> small description here</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-details">
+                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
+                        <div class="product-specs">
+                            <h3>title here</h3>
+                            <h4>price</h4>
+                            <p> small description here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   
+
 </body>
 </html>
