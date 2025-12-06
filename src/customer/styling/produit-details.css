@@ -131,18 +131,42 @@
     margin: 5px 0;
 }
 
-.title-sect p:last-child {
+.title-sect p:nth-last-child(2) {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.title-sect p:nth-last-child(1) {
     font-size: 1.1rem;
     font-weight: 400;
     color: #718096;
     line-height: 1.6;
 }
 
+.quantity-sect{
+    display: flex;
+    justify-content: flex-start;
+}
+.quantity-sect p{
+    margin: 0 10px 0 5px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2d3748;
+}
+.quantity-sect input{
+    font-size: 1.2rem;
+    margin: -3px 0 0 15px;
+    max-width: 150px;
+    outline: none;
+    box-shadow: none;
+}
+
 .divider-hr {
     border: none;
     height: 1px;
     background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
-    margin: 10px 0;
+    margin: 5px 0;
 }
 
 .category-sect,

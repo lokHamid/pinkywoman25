@@ -4,37 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinky Woman 25 - Commande</title>
-    <link rel="stylesheet" href="../styling/global.css">
+    <link rel="stylesheet" href="/src/shared/styles/global.css">
     <link rel="stylesheet" href="../styling/commande.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="../scripts/globalScript.js" defer></script>
+    <script src="/src/shared/js/globalScript.js" defer></script>
     <script src="../scripts/commande.js" defer></script>
 </head>
 <body>
-    <navbar class="nav-bar">
-        <div class="logo-placeholder">
-            <img src="../../assets/cropped-pw25.jpeg" alt="pinkyWoman25" onclick="window.location.href='index.html'"/>
-        </div>  
-        <div>
-            <a href="index.html">Accueil</a>
-            <a href="produits.html">Tous Les Produits</a>
-            <a href="produits.html?discount">Promotions</a>
-            <div class="dropdown">
-               <a id="moreBtn">More ▼</a>
-                <div id="dropdownmenu" class="dropdown-content">
-                    <a href="produits.html?category=pyjamas_manche_longue">pyjamas manche longue</a>
-                    <a href="produits.html?category=pyjamas_ete">pyjamas d'été</a>
-                    <a href="produits.html?category=robe_maison">robe maison</a>
-                </div>
-            </div>
-        </div>
-        <div class="search-wrapper">
-            <input type="text" id="navSearchInput" placeholder="Search" />
-            <div class="search-icon-container" id="searchIcon">
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
-    </navbar>
 
     <div class="order-container">
         <div class="order-header">
@@ -53,12 +29,15 @@
                         <div class="product-name">Pyjama Élégant - Collection Printemps</div>
                         <div class="product-meta">Taille: S | Couleur: Rouge</div>
                     </div>
-                    <div class="product-price">4,500 D.A</div>
+                    <div class="commande-preferences">
+                        <div class="product-price">4,500 D.A</div>
+                        <div class="product-qt">Quantité: 2</div>
+                    </div>
                 </div>
                 
                 <div class="order-total">
                     <span>Total:</span>
-                    <span>4,500 D.A</span>
+                    <span>9,000 D.A</span>
                 </div>
             </div>
 

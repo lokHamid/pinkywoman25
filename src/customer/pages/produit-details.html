@@ -4,37 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pinky Woman 25 - Product Details</title>
-    <link rel="stylesheet" href="../styling/global.css">
+    <link rel="stylesheet" href="/src/shared/styles/global.css">
     <link rel="stylesheet" href="../styling/produit-details.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="../scripts/globalScript.js" defer></script>
+    <script src="/src/shared/js/globalScript.js" defer></script>
     <script src="../scripts/produit-details.js" defer></script>
 </head>
 <body>
-    <navbar class="nav-bar">
-        <div class="logo-placeholder">
-            <img src="../../assets/cropped-pw25.jpeg" alt="pinkyWoman25" onclick="window.location.href='index.html'"/>
-        </div>
-        <div>
-            <a href="index.html">Accueil</a>
-            <a href="produits.html">Tous Les Produits</a>
-            <a href="produits.html?discount">Promotions</a>
-            <div class="dropdown">
-               <a id="moreBtn">More ▼</a>
-                <div id="dropdownmenu" class="dropdown-content">
-                    <a href="produits.html?category=pyjamas_manche_longue">pyjamas manche longue</a>
-                    <a href="produits.html?category=pyjamas_ete">pyjamas d'été</a>
-                    <a href="produits.html?category=robe_maison">robe maison</a>
-                </div>
-            </div>
-        </div>
-        <div class="search-wrapper">
-            <input type="text" id="navSearchInput" placeholder="Search" />
-            <div class="search-icon-container" id="searchIcon">
-                <i class="fas fa-search"></i>
-            </div>
-        </div>
-    </navbar>
 
     <div class="main-content">
         <!-- Image Section -->
@@ -60,10 +36,11 @@
             <div class="title-sect">
                 <h1 class="title">Pyjama Élégant - Collection Printemps</h1>
                 <p class="price">4,500 D.A</p>
+                <p class="qt">quantité restante: 4</p>
                 <p class="description">Découvrez notre pyjama premium confectionné avec un tissu 100% coton pour un confort optimal. Parfait pour vos nuits douillettes et vos moments de détente à la maison.</p>
             </div>
 
-            <hr class="divider-hr">
+            <hr class= "divider-hr">
 
             <div class="category-sect">
                 <h4>Catégories</h4>
@@ -72,6 +49,13 @@
                     <p>Pyjama Manche Longue</p>
                     <p>Collection Printemps</p>
                 </div>
+            </div>
+
+            <hr class="divider-hr">
+            
+            <div class="quantity-sect">
+                <p>Quantité: </p>
+                <input type="number" min="1" max="1000">
             </div>
 
             <hr class="divider-hr">

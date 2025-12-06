@@ -85,6 +85,12 @@
     color: var(--secondary-color);
     font-size: 1.1rem;
 }
+.product-qt{
+    margin-top: 10px;
+    font-weight: 600;
+    color: black;
+    font-size: 0.95rem;
+}
 
 .order-total {
     display: flex;
