@@ -259,12 +259,6 @@ cd frontend
 
 ---
 
-## License
-
-Specify your license here.
-
----
-
 ## Contact
 
 For technical issues or inquiries, please Contact Us Via: lokman.hamidi@univ-constantine2.dz
