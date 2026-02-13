@@ -372,3 +372,183 @@
         font-size: 1.5rem;
     }
 }
+
+/* Lightbox Modal Styles */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.lightbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.lightbox-nav-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 20px;
+    pointer-events: auto;
+    transition: 0.3s;
+}
+
+.lightbox-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+
+/* Make main image clickable */
+#currentImage {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+#currentImage:hover {
+    transform: scale(1.01);
+}
+
+
+.variant-sect {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.variant-sect h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+}
+
+.variant-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.variant-option {
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+
+.variant-option:hover {
+    border-color: var(--secondary-color);
+    background: #fff5f7;
+    transform: translateY(-2px);
+}
+
+.variant-option.active {
+    border-color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: white;
+}
+
+.variant-option.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f7fafc;
+}
+
+.variant-option .variant-header {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.variant-option .variant-meta {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.variant-option .stock {
+    font-weight: 500;
+}
+
+.btn-primary {
+    /* your existing styles */
+    transition: all 0.3s ease;
+}
+
+.btn-primary:disabled,
+.btn-primary.disabled {
+    background: #cbd5e0;
+    color: #718096;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+.btn-primary:disabled:hover {
+    background: #cbd5e0;
+    transform: none;
+}

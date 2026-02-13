@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../styling/produits.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="/src/shared/js/globalScript.js" defer></script>
-    <script src="../scripts/produitsScript.js" defer></script>
+    <script type="module" src="../scripts/produitsScript.js" defer></script>
 </head>
 <body>
     <div class="main-content">
@@ -36,7 +36,7 @@
             </div>
             
             <div class="size-section">
-                <h3>Size</h3>
+                <h3>Taille</h3>
                 <div class="size-options">
                     <div class="size-option">XS</div>
                     <div class="size-option">S</div>
@@ -47,97 +47,49 @@
             </div>
             
             <div class="price-section">
-                <h3>Price Range</h3>
+                <h3>Gamme de prix</h3>
                 <div class="price-inputs">
                     <div class="price-input-group">
-                        <label>Min</label>
-                        <input type="number" placeholder="1000 D.A">
+                        <label for="price-min">Min (D.A)</label>
+                        <input 
+                            type="number" 
+                            id="price-min" 
+                            class="price-min-input"
+                            placeholder="1000" 
+                            min="0"
+                        >
                     </div>
                     <div class="price-input-group">
-                        <label>Max</label>
-                        <input type="number" placeholder="20000 D.A">
+                        <label for="price-max">Max (D.A)</label>
+                        <input 
+                            type="number" 
+                            id="price-max" 
+                            class="price-max-input"
+                            placeholder="20000" 
+                            min="0"
+                        >
                     </div>
-                </div>
-                <div class="price-slider">
-                    <div class="price-slider-track" style="left: 20%; right: 30%;"></div>
-                    <div class="price-slider-thumb" style="left: 20%;"></div>
-                    <div class="price-slider-thumb" style="left: 70%;"></div>
                 </div>
             </div>
             
             <div class="color-section">
-                <h3>Color</h3>
+                <h3>Couleurs</h3>
                 <div class="color-options">
-                    <div class="color-option" style="background-color: #ff3b30;"></div>
-                    <div class="color-option" style="background-color: #007bff;"></div>
-                    <div class="color-option" style="background-color: #4cd964;"></div>
-                    <div class="color-option" style="background-color: #ffcc00;"></div>
-                    <div class="color-option" style="background-color: #000000;"></div>
-                    <div class="color-option" style="background-color: #8e8e93;"></div>
+                    <!-- Color options will be dynamically inserted here -->
                 </div>
             </div>
 
-            <button class="apply-filters-btn">Apply Filters</button>
+            <button class="apply-filters-btn">appliquer</button>
+            <button class="reset-filters-btn">réinitialiser</button>
         </div>
-        <div class="products-container">
-            <div class="grid-title-section">
-                <div class="filtered-text-title">Tous Les Produits</div>
-                <div class="filter-dropdown">
-                    <button class="dropbtn" id="filterBtn">All Items ▼</button>
-                    <div class="filter-drp-content">
-                        <a data-value="all">Tous les articles</a>
-                        <a data-value="featured">En Vedette</a>
-                        <a data-value="popular">populaire</a>
-                        <a data-value="new">Nouveautés</a>
-                    </div>
-                </div>
-            </div>
-            <div class="products-grid">
-
-                <!-- generic layout or desing of card: dynamic later. -->
-                <div class="product-card">
-                    <div class="product-details">
-                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
-                        <div class="product-specs">
-                            <h3>title here</h3>
-                            <h4>price</h4>
-                            <p> small description here</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-details">
-                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
-                        <div class="product-specs">
-                            <h3>title here</h3>
-                            <h4>price</h4>
-                            <p> small description here</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-details">
-                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
-                        <div class="product-specs">
-                            <h3>title here</h3>
-                            <h4>price</h4>
-                            <p> small description here</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <div class="product-details">
-                        <img alt="Image not loaded." src="../../assets/cropped-pw25.jpeg">
-                        <div class="product-specs">
-                            <h3>title here</h3>
-                            <h4>price</h4>
-                            <p> small description here</p>
-                        </div>
-                    </div>
+        <div class="products-wrapper">
+            <div class="products-container">
+                <div class="products-grid">
+                    <!-- Products will be dynamically inserted here -->
                 </div>
             </div>
         </div>
     </div>   
-
+    <script type="module" src="/src/shared/js/navbar-categories.js" defer></script>
 </body>
 </html>

@@ -16,8 +16,8 @@ body{
 :root{
     --main-color: #fdfaf3;
     --navbar-height: 90px;
-    --secondary-color: #faafe0;
-    --accent-color: #ffc2ea;
+    --secondary-color: #ffabea;
+    --accent-color: #f324aa;
     --font-family: "Times New Roman", serif;
     --font-size: 20px;
     --default-box-shadow:0 4px 20px rgba(0, 0, 0, 0.08);

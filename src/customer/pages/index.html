@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../styling/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="/src/shared/js/globalScript.js" defer></script>
-    <script src="../scripts/indexScript.js" defer></script>
+    <script type="module" src="/src/shared/js/navbar-categories.js" defer></script>
+    <script type="module" src="../scripts/indexScript.js" defer></script>
 </head>
 
 <body>
@@ -32,33 +33,15 @@
         </div>
         <button onclick="window.location.href='produits.html'" id="view-all-products-btn">Voir Tous Les Produits <i class="fas fa-arrow-right"></i></button>
     </div>
+    <!-- Most Popular products-->
     <div class="product-container">
-        <div class="product-item">
-            <img src="../../assets/rotating-img1.jpeg" alt="Product 1">
-            <div class="product-details">
-                <h3>Pyjama Floral Élégant</h3>
-                <p class="price">3,500 DA</p>
+        <div class="product-card">
+            <div class="product-image-container">
+                <img src="/assets/rotating-img1.jpeg" alt="Pyjama Floral Élégant" class="product-image">
             </div>
-        </div>
-        <div class="product-item">
-            <img src="../../assets/rotating-img1.jpeg" alt="Product 1">
-            <div class="product-details">
-                <h3>Pyjama Floral Élégant</h3>
-                <p class="price">3,500 DA</p>
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../../assets/rotating-img1.jpeg" alt="Product 1">
-            <div class="product-details">
-                <h3>Pyjama Floral Élégant</h3>
-                <p class="price">3,500 DA</p>
-            </div>
-        </div>
-        <div class="product-item">
-            <img src="../../assets/rotating-img1.jpeg" alt="Product 1">
-            <div class="product-details">
-                <h3>Pyjama Floral Élégant</h3>
-                <p class="price">3,500 DA</p>
+            <div class="product-info">
+                <h3 class="product-title">Pyjama Floral Élégant</h3>
+                <p class="product-price">3,500 DA</p>
             </div>
         </div>
     </div>
@@ -69,22 +52,7 @@
         <p>Découvrez Nos Catégories de Produits les Plus Aimées</p>
     </div>
     <div class="category-container">
-        <div class="category-item">
-            <img src="../../assets/rotating-img3.jpg" alt="Category 1">
-            <h3>Pyjamas Manche Longue</h3>
-        </div>
-        <div class="category-item">
-            <img src="../../assets/rotating-img3.jpg" alt="Category 2">
-            <h3>Pyjamas d'été</h3>
-        </div>
-        <div class="category-item">
-            <img src="../../assets/rotating-img3.jpg" alt="Category 3">
-            <h3>Robe Maison</h3>
-        </div>
-        <div class="category-item">
-            <img src="../../assets/rotating-img3.jpg" alt="Category 3">
-            <h3>Robe Maison</h3>
-        </div>
+        <!-- Categories will be dynamically loaded here -->
     </div>
 
     <!--quels sons nous et notre competences .dsla,dlas dsa-->
@@ -116,12 +84,12 @@
                             class="fab fa-instagram"></i></a>
                 </div>
             </div>
+            <button class="login-btn" onclick="window.location.href='/src/shared/login.html'">Admin Login</button>
         </div>
         <div class="footer-bottom">
             &copy; 2025 Pinky Woman 25. Tous droits réservés.
         </div>
     </footer>
-
 </body>
 
 </html>

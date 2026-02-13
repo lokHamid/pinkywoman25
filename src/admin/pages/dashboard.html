@@ -7,13 +7,22 @@
     <link rel="stylesheet" href="/src/shared/styles/global.css">
     <link rel="stylesheet" href="../styles/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="../js/dashboard.js" defer></script>
-    <script src="/src/shared/js/globalScript.js"></script>
+    <script type="module" src="../js/dashboard.js" defer></script>
+    <script src="/src/shared/js/globalScript.js" defer></script>
 </head>
 <body>
     <div class="admin-actions">
         <button class="btn-add" id="addProductBtn">
             <i class="fas fa-plus"></i> Nouveau Produit
+        </button>
+        <button class="btn-add" id="addVariantBtn">
+            <i class="fas fa-plus"></i> Nouvelle Variante
+        </button>
+        <button class="btn-add" id="addCategoryBtn">
+            <i class="fas fa-plus"></i> Nouveau Catégorie
+        </button>
+        <button class="btn-add" id="addColorBtn">
+            <i class="fas fa-plus"></i> Nouvelle Couleur
         </button>
         <div class="search-box">
             <i class="fas fa-search"></i>
@@ -44,6 +53,7 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Image</th>
                         <th>Nom</th>
                         <th>Catégorie</th>
                         <th>Prix</th>
@@ -74,6 +84,7 @@
                         <th>Total</th>
                         <th>Statut</th>
                         <th>Date</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody id="ordersTableBody">
@@ -96,39 +107,79 @@
                         <label>Nom du produit</label>
                         <input type="text" id="productName" required>
                     </div>
+
                     <div class="form-group">
                         <label>Description</label>
                         <textarea id="productDescription" rows="3"></textarea>
                     </div>
+
                     <div class="form-group">
                         <label>Prix (DZD)</label>
                         <input type="number" id="productPrice" step="0.01" required>
                     </div>
+
                     <div class="form-group">
                         <label>Catégorie</label>
                         <select id="productCategory">
-                            <option value="pyjamas_manche_longue">Pyjamas Manche Longue</option>
-                            <option value="pyjamas_ete">Pyjamas d'Été</option>
-                            <option value="robe_maison">Robe Maison</option>
+                            <!-- options will be filled dynamically probably -->
                         </select>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Couleurs</label>
-                            <div id="colorsContainer" class="checkbox-group">
-                                <!-- Colors will be loaded here -->
-                            </div>
+
+                    <!-- ── Image upload section ─────────────────────────────── -->
+                    <div class="form-group">
+                        <label>Images du produit</label>
+                        
+                        <div class="file-upload-wrapper">
+                            <input 
+                                type="file" 
+                                id="productImages" 
+                                accept="image/jpeg, image/png, image/webp, image/gif"
+                                multiple
+                                hidden
+                            >
+                            <button type="button" class="btn-browse" onclick="document.getElementById('productImages').click()">
+                                📷 Parcourir les images
+                            </button>
+                            <small class="help-text">PNG, JPG, WEBP • max 8 Mo par image • plusieurs fichiers possibles</small>
                         </div>
-                        <div class="form-group">
-                            <label>Tailles</label>
-                            <div id="sizesContainer" class="checkbox-group">
-                                <!-- Sizes will be loaded here -->
-                            </div>
+
+                        <!-- Preview area -->
+                        <div class="image-preview-container" id="imagePreview">
+                            <!-- Images will appear here -->
                         </div>
                     </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Enregistrer</button>
+                        <button type="button" class="btn-cancel close-modal">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Product Variant Modal-->
+     <div class="modal" id="variantModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-boxes"></i> Ajouter une Variante</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="variantForm">
                     <div class="form-group">
-                        <label>Stock initial</label>
-                        <input type="number" id="initialStock" value="0" min="0">
+                        <label>Produit Associé</label>
+                        <select id="associatedProduct" required>
+                        </select>
+                        <label>Stock pour cette variante</label>
+                        <input type="number" id="variantStock" value="0" min="0" required>
+                        <label>Couleur</label>
+                        <select id="variantColor" required>
+                        </select>
+                        <label>Taille</label>
+                        <select id="variantSize" required>
+                        </select>
+                        <label>Ajustement du prix (DZD)</label>
+                        <input type="number" id="variantPriceAdjustment" step="0.01" value="0">
                     </div>
                     <div class="form-actions">
                         <button type="submit" class="btn-save">Enregistrer</button>
@@ -138,5 +189,202 @@
             </div>
         </div>
     </div>
+    <!-- Category Modal -->
+    <div class="modal" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-tags"></i> Nouvelle Catégorie</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="categoryForm">
+                    <div class="form-group">
+                        <label>Nom de la catégorie</label>
+                        <input type="text" id="categoryName" required>
+                    </div>
+
+                    <!-- New: Category photo upload -->
+                    <div class="form-group">
+                        <label>Photo de la catégorie (optionnelle)</label>
+                        <div class="file-upload-wrapper">
+                            <input 
+                                type="file" 
+                                id="categoryPhoto" 
+                                accept="image/jpeg,image/png,image/webp" 
+                                hidden
+                            >
+                            <button 
+                                type="button" 
+                                class="btn-browse"
+                                onclick="document.getElementById('categoryPhoto').click()"
+                            >
+                                📷 Choisir une image
+                            </button>
+                            <small class="help-text">JPEG, PNG, WEBP • max 4 Mo recommandé</small>
+                        </div>
+
+                        <!-- Preview area -->
+                        <div class="image-preview-container" id="categoryPreview">
+                            <!-- preview will appear here -->
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Enregistrer</button>
+                        <button type="button" class="btn-cancel close-modal">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Color Modal -->
+     <div class="modal" id="colorModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-palette"></i> Nouvelle Couleur</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="colorForm">
+                    <div class="form-group">
+                        <label>Nom de la couleur</label>
+                        <input type="text" id="colorName" required>
+                        <label>Code Hexadecimal</label>
+                        <input type="text" id="colorHex" placeholder="#FFFFFF" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save">Enregistrer</button>
+                        <button type="button" class="btn-cancel close-modal">Annuler</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content" style="max-width: 700px; width: 90%;">
+            <div class="modal-header">
+                <h3>Détails de la commande #<span id="modalOrderId"></span></h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="grid-two-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <p><strong>Client :</strong><br>
+                        <input type="text" id="editCustomerName" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </p>
+                    <p><strong>Téléphone :</strong><br>
+                        <input type="text" id="editPhone" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </p>
+                    <p><strong>Wilaya :</strong><br>
+                        <input type="text" id="editWilaya" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </p>
+                    <p><strong>Adresse :</strong><br>
+                        <textarea id="editAddress" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px; min-height:60px;"></textarea>
+                    </p>
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+                <h4 style="margin-bottom: 10px;">Produit & Quantité</h4>
+                <div class="grid-two-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <p><strong>Variante :</strong><br>
+                        <select id="editVariant" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;"></select>
+                    </p>
+                    <p><strong>Quantité :</strong><br>
+                        <input type="number" id="editQuantity" min="1" value="1" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                    </p>
+                </div>
+
+                <div class="grid-two-columns" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px;">
+                    <p><strong>Prix unitaire :</strong><br>
+                        <input type="number" step="0.01" id="editUnitPrice" class="edit-input" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:4px;"> DZD
+                    </p>
+                    <p><strong>Total :</strong><br>
+                        <strong id="modalTotalDisplay" style="font-size:1.2em; color:#16a34a;"></strong> DZD
+                    </p>
+                </div>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+                
+                <p><strong>Date :</strong> <span id="modalDate"></span></p>
+                <p><strong>Statut :</strong><br>
+                    <select id="editStatus" class="edit-input" style="width:200px; padding:8px; border:1px solid #ccc; border-radius:4px;">
+                        <option value="pending">En attente</option>
+                        <option value="confirmed">Confirmée</option>
+                        <option value="shipped">Expédiée</option>
+                        <option value="delivered">Livrée</option>
+                        <option value="cancelled">Annulée</option>
+                    </select>
+                </p>
+
+                <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;">
+
+                <h4 style="margin-bottom: 10px;">Notes du client</h4>
+                <textarea id="editNotes" style="
+                    width: 100%;
+                    min-height: 100px;
+                    padding: 15px;
+                    border-radius: 8px;
+                    border: 1px solid #ccc;
+                    white-space: pre-wrap;
+                    font-family: inherit;
+                "></textarea>
+
+                <div style="margin-top: 20px; text-align: right;">
+                    <button class="btn-cancel-order" style="padding: 10px 20px; background:#e2e8f0; border:none; border-radius:4px; margin-right:10px; cursor:pointer;">
+                        Annuler
+                    </button>
+                    <button class="btn-save-order" style="padding: 10px 20px; background:#22c55e; color:white; border:none; border-radius:4px; cursor:pointer;">
+                        Enregistrer les modifications
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Variants Management Modal -->
+    <div id="variantsModal" class="modal">
+        <div class="modal-content" style="max-width: 820px; width: 92%;">
+            <div class="modal-header">
+                <h3>
+                    <i class="fas fa-boxes-stacked"></i> Variantes du produit : 
+                    <span id="modalProductName" style="color: #4f46e5;"></span>
+                </h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 16px; font-size: 0.95rem; color: #4b5563;">
+                    <strong>Stock total :</strong> <span id="modalTotalStock">0</span> unités
+                </div>
+
+                <div class="variants-table-wrapper" style="overflow-x: auto; margin: 16px 0;">
+                    <table class="variants-table" style="width:100%; border-collapse: collapse; min-width: 680px;">
+                        <thead>
+                            <tr>
+                                <th>Couleur</th>
+                                <th>Taille</th>
+                                <th>Prix ajusté</th>
+                                <th>Stock</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="variantsTableBody">
+                            <!-- Rows generated dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 24px; text-align: right;">
+                    <button type="button" class="btn-cancel close-modal" style="margin-right: 12px;">
+                        Fermer
+                    </button>
+                    <!-- Optional: save all at once button -->
+                    <button type="button" id="saveAllVariantsBtn" class="btn-save" style="display:none;">
+                        Enregistrer toutes les modifications
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/src/shared/js/navbar-categories.js" defer></script>
 </body>
 </html>
